@@ -19164,6 +19164,10 @@ module.exports = Pager;
 var React = require('react');
 var Pager = require('./Pager');
 
+/* Pagination component
+ * Component controls navigation
+ */
+
 var Pagination = React.createClass({displayName: "Pagination",
   render: function() {
     var self = this;
@@ -19473,7 +19477,7 @@ var Slideshow = require('./Slideshow');
 /**
  * @param state will be passed to component
  *
- * Based on data component will be mounted
+ * Based on data component will be mounted, root component
  */
 
 
@@ -19482,7 +19486,7 @@ module.exports = function (state) {
   var component;
   if (hasData) {
     component = React.createElement(Slideshow, {data: state.data, currentSlide: state.currentSlide});
-    console.log(React.createElement(Slideshow, {data: state.data, currentSlide: state.currentSlide}));
+    //console.log(React.createElement(Slideshow, {data: state.data, currentSlide: state.currentSlide}));
   }
   else {
     component = React.createElement(EmptyMessage, null);

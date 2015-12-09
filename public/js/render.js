@@ -9,7 +9,6 @@ var Slideshow = require('./Slideshow');
  * Based on data component will be mounted, root component
  */
 
-
 module.exports = function (state) {
   var hasData = state.data.length > 0;
   var component;

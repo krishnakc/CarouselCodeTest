@@ -35,9 +35,6 @@ var Slideshow = React.createClass({
     });
   },
   toggleSlide: function(id) {
-    // console.log('toggle');
-    // state.currentSlide = id;
-    // render(state);
     this.setState({
     	currentSlide: id
     });
