@@ -1,7 +1,7 @@
 {
-  "name": "Carousel CodeTest",
+  "name": "simple-react-slideshow-master2",
   "version": "1.0.0",
-  "description": ".",
+  "description": "",
   "main": "index.js",
   "dependencies": {
     "browserify": "^12.0.1",
@@ -14,6 +14,6 @@
   "scripts": {
     "build": "browserify --transform reactify index.js > public/js/bundle.js"
   },
-  "author": "Krishna",
+  "author": "",
   "license": "ISC"
 }

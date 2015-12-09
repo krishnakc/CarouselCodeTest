@@ -1,50 +1,207 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    line-height: 20px;
+    font-size: 15px;
+}
+.slideshow {
+}
+.slides {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.slide {
+    display: none;
+}
+.slide.slide--active {
+    display: block;
+}
+.controls {
+}
+.toggle {
+    background: blue;
+    color: white;
+    display: block;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+}
+img {
+    width: 200px;
+    height: 200px;
+}
+.toggle-prev {
+    left: 0;
+}
+.toggle--next {
+    right: 0;
+}
+.pagination {
+    margin: 20px;
+    text-align: center;
+}
+.pager {
+    background-color: red;
+    display: inline-block;
+    height: 20px;
+    margin: 10px;
+    overflow: hidden;
+    text-indent: -9000px;
+    white-space: nowrap;
+    width: 20px;
+}
+
 /* dadocreate.com by Davide Fortuna (davidefortuna@gmail.com) */
 
 /* line 1, ../sass/style.scss */
-body { font: 0.75em arial, helvetica, sans-serif; text-align: center; background: #e9e9e9; }
+body {
+    font: 0.75em arial, helvetica, sans-serif;
+    text-align: center;
+    background: #e9e9e9;
+}
 
 /* line 7, ../sass/style.scss */
-a { text-decoration: none; }
+a {
+    text-decoration: none;
+}
 
 /* line 11, ../sass/style.scss */
-ul { list-style: none; margin: 0; padding: 0; }
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
 /* line 17, ../sass/style.scss */
-.content { margin: 0 auto; text-align: left; width: 960px; background: #fff; }
+.content {
+    margin: 0 auto;
+    text-align: left;
+    width: 960px;
+    background: #fff;
+}
 
 /* line 23, ../sass/style.scss */
-.clear { display: block; float: none; clear: both; }
+.clear {
+    display: block;
+    float: none;
+    clear: both;
+}
 
 /* line 29, ../sass/style.scss */
-.instructions { display: block; float: left; clear: none; width: 460px; margin: 10px; }
+.instructions {
+    display: block;
+    float: left;
+    clear: none;
+    width: 460px;
+    margin: 10px;
+}
 
 /* line 32, ../sass/style.scss */
-img { border: none; }
+img {
+    border: none;
+}
 
 /* ---------------------- Start the carousel CSS here -------------------- */
+
 /* line 39, ../sass/style.scss */
-#carousel .items { width: 930px; height: 257px; margin: 0 auto; padding: 0; position: relative; overflow: hidden; }
+#carousel .items {
+    width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
 /* line 48, ../sass/style.scss */
-#carousel .item { margin: 0; padding: 0; width: 225px; height: 245px; margin: 20px 10px 20px 0; position: relative; }
+#carousel .item {
+    float: left;
+    padding: 0;
+    width: 225px;
+    position: relative;
+    text-align: center;
+}
+
 /* line 56, ../sass/style.scss */
-#carousel .item p { padding: 0 20px; }
+#carousel .item p {
+    padding: 0 20px;
+}
+
 /* line 60, ../sass/style.scss */
-#carousel .item .title { display: block; font-family: Georgia, serif; font-size: 1.3em; color: #072353; padding-left: 20px; margin: 3px 0; background-image: url("../images/carousel_sprite.png"); background-repeat: no-repeat; background-position: 0 -3px; }
+#carousel .item .title {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 1.3em;
+    color: #072353;
+    padding-left: 20px;
+    margin: 3px 0;
+    background-image: url("../images/carousel_sprite.png");
+    background-repeat: no-repeat;
+    background-position: 0 -3px;
+}
+
 /* line 74, ../sass/style.scss */
-#carousel .controls { display: table; margin: 0 auto; }
+#carousel .controls {
+    display: table;
+    margin: 0 auto;
+}
+
 /* line 78, ../sass/style.scss */
-#carousel .controls li { display: inline-block; }
+#carousel .controls li {
+    display: inline-block;
+}
+
 /* line 81, ../sass/style.scss */
-#carousel .controls .buttons { position: relative; bottom: 5px; }
+#carousel .controls .buttons {
+    position: relative;
+    bottom: 5px;
+}
+
 /* line 85, ../sass/style.scss */
-#carousel .controls .buttons a { display: block; margin: 0 2px; width: 14px; height: 14px; background-image: url("../images/carousel_sprite.png"); background-repeat: no-repeat; background-position: -35px -100px; -webkit-transition: background-position 0.15s ease-in; -moz-transition: background-position 0.15s ease-in; -o-transition: background-position 0.15s ease-in; transition: background-position 0.15s ease-in; }
+#carousel .controls .buttons a {
+    display: block;
+    margin: 0 2px;
+    width: 14px;
+    height: 14px;
+    background-image: url("../images/carousel_sprite.png");
+    background-repeat: no-repeat;
+    background-position: -35px -100px;
+    -webkit-transition: background-position 0.15s ease-in;
+    -moz-transition: background-position 0.15s ease-in;
+    -o-transition: background-position 0.15s ease-in;
+    transition: background-position 0.15s ease-in;
+}
+
 /* line 98, ../sass/style.scss */
-#carousel .controls .buttons a:hover { background-position: -5px -100px; }
+/*#carousel .controls .buttons a:hover {
+  background-position: -5px -100px;
+}*/
+
 /* line 104, ../sass/style.scss */
-#carousel .controls .buttons .selected { background-position: -5px -100px; }
+#carousel .controls .buttons .selected {
+    background-position: -5px -100px;
+}
+#instructions {
+    padding: 20px;
+}
 /* line 109, ../sass/style.scss */
-#carousel .controls .nav { display: block; width: 26px; height: 24px; background-image: url("../images/carousel_sprite.png"); background-repeat: no-repeat; }
+#carousel .controls .nav {
+    display: block;
+    cursor: pointer;
+    width: 26px;
+    height: 24px;
+    background-image: url("../images/carousel_sprite.png");
+    background-repeat: no-repeat;
+}
+
 /* line 117, ../sass/style.scss */
-#carousel .controls #leftNav { background-position: -5px -28px; }
+#carousel .controls #leftNav {
+    background-position: -5px -28px;
+}
+
 /* line 121, ../sass/style.scss */
-#carousel .controls #rightNav { background-position: -5px -64px; }
+#carousel .controls #rightNav {
+    background-position: -5px -64px;
+}

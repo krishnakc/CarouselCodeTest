@@ -19087,6 +19087,7 @@ var React = require('react');
 var actions = require('./actions');
 var pagination = require('./Pagination');
 var Controls = React.createClass({displayName: "Controls",
+  /*TODO prev and next Actions should be from Dispatcher*/
   togglePrev: function() {
     actions.togglePrev();
   },
@@ -19110,7 +19111,11 @@ module.exports = Controls;
 
 },{"./Pagination":164,"./actions":168,"react":160}],162:[function(require,module,exports){
 var React = require('react');
+/*
 
+Empty message will be shown if data is missing
+
+*/
 var EmptyMessage = React.createClass({displayName: "EmptyMessage",
   render: function() {
     return (
@@ -19127,7 +19132,9 @@ module.exports = EmptyMessage;
 * Date : 08-12-2015
 * Last modified : 09-12-2015
 */
-
+/*
+ Pager component is used to navigate between slides based on unique id
+ */
 var React = require('react');
 var actions = require('./actions');
 var classNames = require('classnames');
@@ -19178,6 +19185,10 @@ module.exports = Pagination;
 },{"./Pager":163,"react":160}],165:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
+
+/* Slide component is a child component of SlideShow
+ * classNames has been used to accomodate multiple dynamic class names
+ */
 
 var Slide = React.createClass({displayName: "Slide",
   render: function() {
@@ -19305,7 +19316,7 @@ module.exports = {
 
 },{"./state":171}],169:[function(require,module,exports){
 /**
- * Created by kchait on 09/12/15.
+ * Static JSON, data input can be changed from API or Service
  */
 
 var data = {
@@ -19419,6 +19430,13 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var EmptyMessage = require('./EmptyMessage');
 var Slideshow = require('./Slideshow');
+
+/**
+ * @param state state will be passed to component
+ *
+ * Based on data component will be mounted
+ */
+
 
 module.exports = function (state) {
   var hasData = state.data.length > 0;
