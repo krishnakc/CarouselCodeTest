@@ -27,8 +27,6 @@ var Slideshow = React.createClass({
     if (prev < 0) {
       prev = this.props.data.length - 1;
     }
-    // state.currentSlide = prev;
-    // render(state);
     this.setState({
     	currentSlide: prev,
     	data: this.props.data

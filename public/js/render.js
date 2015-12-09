@@ -14,7 +14,6 @@ module.exports = function (state) {
   var component;
   if (hasData) {
     component = <Slideshow data={state.data} currentSlide={state.currentSlide}/>;
-    //console.log(React.createElement(Slideshow, {data: state.data, currentSlide: state.currentSlide}));
   }
   else {
     component = <EmptyMessage />;
