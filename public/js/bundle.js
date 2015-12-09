@@ -5,123 +5,16 @@ var Slideshow = require('./public/js/Slideshow');
 var EmptyMessage = require('./public/js/EmptyMessage');
 var state = require('./public/js/state');
 var render = require('./public/js/render');
-
-var data = {
-
-  "data": {
-    "carousel": {
-      "format": {
-        "paging": 4,
-        "heading": "A Teaser carousel"
-      },
-      "items": [{
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_1.jpg",
-        "alt": "Alt text for image 1",
-        "title": "1st Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-
-
-      }, {
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_2.jpg",
-        "alt": "Alt text for image 2",
-        "title": "2nd Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-
-
-      }, {
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_3.jpg",
-        "alt": "Alt text for image 3",
-        "title": "3rd Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-
-
-      }, {
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_4.jpg",
-        "alt": "Alt text for image 4",
-        "title": "4th Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-
-
-      }, {
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_5.jpg",
-        "alt": "Alt text for image 5",
-        "title": "5th Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-
-
-      }, {
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_6.jpg",
-        "alt": "Alt text for image 6",
-        "title": "6th Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-
-
-      }, {
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_7.jpg",
-        "alt": "Alt text for image 7",
-        "title": "7th Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-
-
-      }, {
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_8.jpg",
-        "alt": "Alt text for image 8",
-        "title": "8th Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-
-
-      }, {
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_9.jpg",
-        "alt": "Alt text for image 1",
-        "title": "9th Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-
-
-      }, {
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_10.jpg",
-        "alt": "Alt text for image 10",
-        "title": "10th Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-
-
-      }, {
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_11.jpg",
-        "alt": "Alt text for image 11",
-        "title": "11th Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-
-
-      }, {
-        "url": "instructions.html",
-        "img": "public/images/test_carousel_image_12.jpg",
-        "alt": "Alt text for image 12",
-        "title": "12th Item",
-        "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-      }]
-    }
-  }
-
-};
+var carouselData = require('./public/js/data');
 
 render(state);
 
 setTimeout(function() {
-  state.data = data.data.carousel.items;
+  state.data = carouselData.carousel.items;
   render(state);
 }, 1000);
 
-},{"./public/js/EmptyMessage":162,"./public/js/Slideshow":167,"./public/js/render":169,"./public/js/state":170,"react":160,"react-dom":4}],2:[function(require,module,exports){
+},{"./public/js/EmptyMessage":162,"./public/js/Slideshow":167,"./public/js/data":169,"./public/js/render":170,"./public/js/state":171,"react":160,"react-dom":4}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -19339,7 +19232,7 @@ var Slides = React.createClass({displayName: "Slides",
 
 module.exports = Slides;
 
-},{"./Slide":165,"./state":170,"react":160}],167:[function(require,module,exports){
+},{"./Slide":165,"./state":171,"react":160}],167:[function(require,module,exports){
 var React = require('react');
 var Slides = require('./Slides');
 var Pagination = require('./Pagination');
@@ -19410,7 +19303,118 @@ module.exports = {
   }
 };
 
-},{"./state":170}],169:[function(require,module,exports){
+},{"./state":171}],169:[function(require,module,exports){
+/**
+ * Created by kchait on 09/12/15.
+ */
+
+var data = {
+        "carousel": {
+            "format": {
+                "paging": 4,
+                "heading": "A Teaser carousel"
+            },
+            "items": [{
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_1.jpg",
+                "alt": "Alt text for image 1",
+                "title": "1st Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+
+            }, {
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_2.jpg",
+                "alt": "Alt text for image 2",
+                "title": "2nd Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+
+            }, {
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_3.jpg",
+                "alt": "Alt text for image 3",
+                "title": "3rd Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+
+            }, {
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_4.jpg",
+                "alt": "Alt text for image 4",
+                "title": "4th Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+
+            }, {
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_5.jpg",
+                "alt": "Alt text for image 5",
+                "title": "5th Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+
+            }, {
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_6.jpg",
+                "alt": "Alt text for image 6",
+                "title": "6th Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+
+            }, {
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_7.jpg",
+                "alt": "Alt text for image 7",
+                "title": "7th Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+
+            }, {
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_8.jpg",
+                "alt": "Alt text for image 8",
+                "title": "8th Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+
+            }, {
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_9.jpg",
+                "alt": "Alt text for image 1",
+                "title": "9th Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+
+            }, {
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_10.jpg",
+                "alt": "Alt text for image 10",
+                "title": "10th Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+
+            }, {
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_11.jpg",
+                "alt": "Alt text for image 11",
+                "title": "11th Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+
+            }, {
+                "url": "instructions.html",
+                "img": "public/images/test_carousel_image_12.jpg",
+                "alt": "Alt text for image 12",
+                "title": "12th Item",
+                "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+            }]
+        }
+};
+
+module.exports = data;
+
+},{}],170:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var EmptyMessage = require('./EmptyMessage');
@@ -19431,7 +19435,7 @@ module.exports = function (state) {
   );
 };
 
-},{"./EmptyMessage":162,"./Slideshow":167,"react":160,"react-dom":4}],170:[function(require,module,exports){
+},{"./EmptyMessage":162,"./Slideshow":167,"react":160,"react-dom":4}],171:[function(require,module,exports){
 module.exports = {
   currentSlide: 0,
   data: []

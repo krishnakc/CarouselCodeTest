@@ -1,6 +1,0 @@
-#React Slideshow
-
-# npm install
-
-
-
