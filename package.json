@@ -1,0 +1,19 @@
+{
+  "name": "simple-react-slideshow-master2",
+  "version": "1.0.0",
+  "description": "Package to “Building a simple slideshow plugin with React” tutorial [to be found on my site](http://piotrf.pl/wrote/building-a-simple-slideshow-with-react-js).",
+  "main": "index.js",
+  "dependencies": {
+    "browserify": "^12.0.1",
+    "classnames": "^2.2.1",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "reactify": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "browserify --transform reactify index.js > public/js/bundle.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
