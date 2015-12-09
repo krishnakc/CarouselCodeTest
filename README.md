@@ -1,5 +1,15 @@
-# CarouselCodeTest
+# React Carousel
 
-Application is built with React and Node, bundled using browserify 
+```html
+Run index.html directly, code has been bundled and kept in root HTML file
+```
 
-Run index.html in browser
+## To make changes to code packet
+
+npm install 
+
+to build after code changes
+
+### Run following
+
+npm run build
