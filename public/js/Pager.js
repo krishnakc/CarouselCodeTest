@@ -3,7 +3,9 @@
 * Date : 08-12-2015
 * Last modified : 09-12-2015
 */
-
+/*
+ Pager component is used to navigate between slides based on unique id
+ */
 var React = require('react');
 var actions = require('./actions');
 var classNames = require('classnames');

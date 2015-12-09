@@ -1,5 +1,9 @@
 var React = require('react');
+/*
 
+Empty message will be shown if data is missing
+
+*/
 var EmptyMessage = React.createClass({
   render: function() {
     return (

@@ -1,6 +1,10 @@
 var React = require('react');
 var classNames = require('classnames');
 
+/* Slide component is a child component of SlideShow
+ * classNames has been used to accomodate multiple dynamic class names
+ */
+
 var Slide = React.createClass({
   render: function() {
     var classes = classNames({

@@ -2,6 +2,7 @@ var React = require('react');
 var actions = require('./actions');
 var pagination = require('./Pagination');
 var Controls = React.createClass({
+  /*TODO prev and next Actions should be from Dispatcher*/
   togglePrev: function() {
     actions.togglePrev();
   },

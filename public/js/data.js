@@ -1,5 +1,5 @@
 /**
- * Created by kchait on 09/12/15.
+ * Static JSON, data input can be changed from API or Service
  */
 
 var data = {
@@ -105,3 +105,5 @@ var data = {
             }]
         }
 };
+
+module.exports = data;
