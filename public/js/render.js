@@ -4,9 +4,9 @@ var EmptyMessage = require('./EmptyMessage');
 var Slideshow = require('./Slideshow');
 
 /**
- * @param state state will be passed to component
+ * @param state will be passed to component
  *
- * Based on data component will be mounted
+ * Based on data component will be mounted, root component
  */
 
 
@@ -15,6 +15,7 @@ module.exports = function (state) {
   var component;
   if (hasData) {
     component = <Slideshow data={state.data} currentSlide={state.currentSlide}/>;
+    //console.log(React.createElement(Slideshow, {data: state.data, currentSlide: state.currentSlide}));
   }
   else {
     component = <EmptyMessage />;

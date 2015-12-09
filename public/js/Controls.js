@@ -13,9 +13,9 @@ var Controls = React.createClass({
     return (
       <div className="controls">
         <ul>
-          <li><span className="nav" id="leftNav" onClick={this.togglePrev}></span></li>
+          <li><span className="nav" id="leftNav" onClick={this.props.togglePrev}></span></li>
           {pagination}
-          <li><span className="nav" id="rightNav" onClick={this.toggleNext}></span></li>
+          <li><span className="nav" id="rightNav" onClick={this.props.toggleNext}></span></li>
         </ul>
       </div>
     );

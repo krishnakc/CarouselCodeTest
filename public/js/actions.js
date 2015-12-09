@@ -1,24 +1,16 @@
 var state = require('./state');
-// var render = require('./render');
-// var React = require('react');
-// var ReactDOM = require('react-dom');
-// var EmptyMessage = require('./EmptyMessage');
-// var Slideshow = require('./Slideshow');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var EmptyMessage = require('./EmptyMessage');
+var Slideshow = require('./Slideshow');
 
-// function render(state) {
-//   var hasData = state.data.length > 0;
-//   var component;
-//   if (hasData) {
-//     component = <Slideshow data={state.data} currentSlide={state.currentSlide}/>;
-//   }
-//   else {
-//     component = <EmptyMessage />;
-//   }
-//   ReactDOM.render(
-//     component,
-//     document.getElementById('carousel-items')
-//   );
-// };
+function render(state) {
+  console.log(React.createElement(Slideshow, {data: state.data, currentSlide: state.currentSlide}));
+  ReactDOM.render(
+    <Slideshow data={state.data} currentSlide={state.currentSlide}/>,
+    document.getElementById('carousel-items')
+  );
+};
 
 module.exports = {
   toggleNext: function() {

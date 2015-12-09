@@ -7,12 +7,13 @@ var state = require('./public/js/state');
 var render = require('./public/js/render');
 var carouselData = require('./public/js/data');
 
-render(state);
-
-setTimeout(function() {
-  state.data = carouselData.carousel.items;
-  render(state);
-}, 1000);
+/*
+ * @param state.data contains static JSON
+ *
+ * render is initiates component call
+ */
+ state.data = carouselData.carousel.items;
+ render(state);
 
 },{"./public/js/EmptyMessage":162,"./public/js/Slideshow":167,"./public/js/data":169,"./public/js/render":170,"./public/js/state":171,"react":160,"react-dom":4}],2:[function(require,module,exports){
 // shim for using process in browser
@@ -19098,9 +19099,9 @@ var Controls = React.createClass({displayName: "Controls",
     return (
       React.createElement("div", {className: "controls"}, 
         React.createElement("ul", null, 
-          React.createElement("li", null, React.createElement("span", {className: "nav", id: "leftNav", onClick: this.togglePrev})), 
+          React.createElement("li", null, React.createElement("span", {className: "nav", id: "leftNav", onClick: this.props.togglePrev})), 
           pagination, 
-          React.createElement("li", null, React.createElement("span", {className: "nav", id: "rightNav", onClick: this.toggleNext}))
+          React.createElement("li", null, React.createElement("span", {className: "nav", id: "rightNav", onClick: this.props.toggleNext}))
         )
       )
     );
@@ -19151,13 +19152,14 @@ var Pager = React.createClass({displayName: "Pager",
     });
     return (
       React.createElement("li", null, 
-        React.createElement("a", {className: classes, onClick: this.toggleSlide})
+        React.createElement("a", {className: classes, onClick: this.props.toggleSlide})
       )
     );
   }
 });
 
 module.exports = Pager;
+
 },{"./actions":168,"classnames":3,"react":160}],164:[function(require,module,exports){
 var React = require('react');
 var Pager = require('./Pager');
@@ -19166,9 +19168,10 @@ var Pagination = React.createClass({displayName: "Pagination",
   render: function() {
     var self = this;
     var paginationNodes = this.props.data.map(function (paginationNode, index) {
+      var slide = self.props.toggleSlide.bind(null, index);
       if (index % 4 === 0)
       return (
-        React.createElement(Pager, {id: index, key: index, title: paginationNode.title, selected: self.props.currentSlide})
+        React.createElement(Pager, {id: index, key: index, title: paginationNode.title, selected: self.props.currentSlide, toggleSlide: slide})
       );
     });
     return (
@@ -19182,6 +19185,7 @@ var Pagination = React.createClass({displayName: "Pagination",
 });
 
 module.exports = Pagination;
+
 },{"./Pager":163,"react":160}],165:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
@@ -19213,6 +19217,7 @@ var Slide = React.createClass({displayName: "Slide",
 });
 
 module.exports = Slide;
+
 },{"classnames":3,"react":160}],166:[function(require,module,exports){
 /*
  * Author : Krishna
@@ -19226,9 +19231,10 @@ var state = require('./state');
 
 var Slides = React.createClass({displayName: "Slides",
   render: function() {
+    var currentSlide = this.props.currentSlide;
     var slidesNodes = this.props.data.map(function (slideNode, index) {
 
-    var isActive = state.currentSlide <= index && (state.currentSlide + 4) > index;
+    var isActive = currentSlide <= index && (currentSlide + 4) > index;
       return (
         React.createElement(Slide, {active: isActive, key: index, imagePath: slideNode.img, imageAlt: slideNode.alt, title: slideNode.title, text: slideNode.content, action: slideNode.url})
       );
@@ -19250,12 +19256,53 @@ var Pagination = require('./Pagination');
 var Controls = require('./Controls');
 
 var Slideshow = React.createClass({displayName: "Slideshow",
+	getInitialState: function() {
+	    return {
+	    	currentSlide: 0,
+	    	data: this.props.data
+	    };
+	},
+	toggleNext: function() {
+    var current = this.state.currentSlide;
+    var next = current + 4;
+    if (next > this.props.data.length - 1) {
+      next = 0;
+    }
+    this.setState({
+    	currentSlide: next,
+    	data: this.props.data
+    });
+  },
+  togglePrev: function() {
+    var current = this.state.currentSlide;
+    var prev = current - 4;
+    if (prev < 0) {
+      prev = this.props.data.length - 1;
+    }
+    // state.currentSlide = prev;
+    // render(state);
+    this.setState({
+    	currentSlide: prev,
+    	data: this.props.data
+    });
+  },
+  toggleSlide: function(id) {
+    // console.log('toggle');
+    // state.currentSlide = id;
+    // render(state);
+    this.setState({
+    	currentSlide: id
+    });
+  },
   render: function() {
+  	var prev = this.togglePrev;
+  	var next = this.toggleNext;
+  	var slide = this.toggleSlide;
     return (
       React.createElement("div", {className: "slideshow"}, 
-        React.createElement(Slides, {data: this.props.data}), 
-        React.createElement(Pagination, {data: this.props.data, currentSlide: this.props.currentSlide}), 
-        React.createElement(Controls, null)
+        React.createElement(Slides, {data: this.state.data, currentSlide: this.state.currentSlide}), 
+        React.createElement(Pagination, {data: this.props.data, currentSlide: this.state.currentSlide, toggleSlide: slide}), 
+        React.createElement(Controls, {togglePrev: prev, toggleNext: next})
       )
     );
   }
@@ -19265,26 +19312,18 @@ module.exports = Slideshow;
 
 },{"./Controls":161,"./Pagination":164,"./Slides":166,"react":160}],168:[function(require,module,exports){
 var state = require('./state');
-// var render = require('./render');
-// var React = require('react');
-// var ReactDOM = require('react-dom');
-// var EmptyMessage = require('./EmptyMessage');
-// var Slideshow = require('./Slideshow');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var EmptyMessage = require('./EmptyMessage');
+var Slideshow = require('./Slideshow');
 
-// function render(state) {
-//   var hasData = state.data.length > 0;
-//   var component;
-//   if (hasData) {
-//     component = <Slideshow data={state.data} currentSlide={state.currentSlide}/>;
-//   }
-//   else {
-//     component = <EmptyMessage />;
-//   }
-//   ReactDOM.render(
-//     component,
-//     document.getElementById('carousel-items')
-//   );
-// };
+function render(state) {
+  console.log(React.createElement(Slideshow, {data: state.data, currentSlide: state.currentSlide}));
+  ReactDOM.render(
+    React.createElement(Slideshow, {data: state.data, currentSlide: state.currentSlide}),
+    document.getElementById('carousel-items')
+  );
+};
 
 module.exports = {
   toggleNext: function() {
@@ -19314,7 +19353,7 @@ module.exports = {
   }
 };
 
-},{"./state":171}],169:[function(require,module,exports){
+},{"./EmptyMessage":162,"./Slideshow":167,"./state":171,"react":160,"react-dom":4}],169:[function(require,module,exports){
 /**
  * Static JSON, data input can be changed from API or Service
  */
@@ -19432,7 +19471,7 @@ var EmptyMessage = require('./EmptyMessage');
 var Slideshow = require('./Slideshow');
 
 /**
- * @param state state will be passed to component
+ * @param state will be passed to component
  *
  * Based on data component will be mounted
  */
@@ -19443,6 +19482,7 @@ module.exports = function (state) {
   var component;
   if (hasData) {
     component = React.createElement(Slideshow, {data: state.data, currentSlide: state.currentSlide});
+    console.log(React.createElement(Slideshow, {data: state.data, currentSlide: state.currentSlide}));
   }
   else {
     component = React.createElement(EmptyMessage, null);

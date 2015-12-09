@@ -10,9 +10,10 @@ var state = require('./state');
 
 var Slides = React.createClass({
   render: function() {
+    var currentSlide = this.props.currentSlide;
     var slidesNodes = this.props.data.map(function (slideNode, index) {
 
-    var isActive = state.currentSlide <= index && (state.currentSlide + 4) > index;
+    var isActive = currentSlide <= index && (currentSlide + 4) > index;
       return (
         <Slide active={isActive} key={index} imagePath={slideNode.img} imageAlt={slideNode.alt} title={slideNode.title} text={slideNode.content} action={slideNode.url} />
       );

@@ -22,7 +22,7 @@ var Pager = React.createClass({
     });
     return (
       <li >
-        <a className={classes} onClick={this.toggleSlide}></a>
+        <a className={classes} onClick={this.props.toggleSlide}></a>
       </li>
     );
   }

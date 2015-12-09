@@ -6,9 +6,10 @@ var state = require('./public/js/state');
 var render = require('./public/js/render');
 var carouselData = require('./public/js/data');
 
-render(state);
-
-setTimeout(function() {
-  state.data = carouselData.carousel.items;
-  render(state);
-}, 1000);
+/*
+ * @param state.data contains static JSON
+ *
+ * render is initiates component call
+ */
+ state.data = carouselData.carousel.items;
+ render(state);
